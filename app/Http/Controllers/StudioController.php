@@ -26,13 +26,19 @@ class StudioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'      => 'required|string|max:255',
-            'cinema_id' => 'required|exists:cinemas,id',
+            'name'          => 'required|string|max:255',
+            'cinema_id'     => 'required|exists:cinemas,id',
+            'weekday_price' => 'required|integer|min:0',
+            'friday_price'  => 'required|integer|min:0',
+            'weekend_price' => 'required|integer|min:0',
         ]);
 
         Studio::create([
-            'name'      => $request->name,
-            'cinema_id' => $request->cinema_id,
+            'name'          => $request->name,
+            'cinema_id'     => $request->cinema_id,
+            'weekday_price' => $request->weekday_price,
+            'friday_price'  => $request->friday_price,
+            'weekend_price' => $request->weekend_price,
         ]);
 
         return redirect()->route('studios.index')->with('success', 'Studio berhasil ditambahkan!');
@@ -50,12 +56,21 @@ class StudioController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'      => 'required|string|max:255',
-            'cinema_id' => 'required|exists:cinemas,id',
+            'name'          => 'required|string|max:255',
+            'cinema_id'     => 'required|exists:cinemas,id',
+            'weekday_price' => 'required|integer|min:0',
+            'friday_price'  => 'required|integer|min:0',
+            'weekend_price' => 'required|integer|min:0',
         ]);
 
         $studio = Studio::findOrFail($id);
-        $studio->update($request->only(['name', 'cinema_id']));
+        $studio->update([
+            'name'          => $request->name,
+            'cinema_id'     => $request->cinema_id,
+            'weekday_price' => $request->weekday_price,
+            'friday_price'  => $request->friday_price,
+            'weekend_price' => $request->weekend_price,
+        ]);
 
         return redirect()->route('studios.index')->with('success', 'Studio berhasil diperbarui!');
     }

@@ -12,6 +12,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cinema_id');
             $table->string('name'); // nama studio (contoh: IMAX, Regular, Dolby)
+
+            $table->integer('weekday_price');
+            $table->integer('friday_price');
+            $table->integer('weekend_price');
+
             $table->timestamps();
 
             $table->foreign('cinema_id')

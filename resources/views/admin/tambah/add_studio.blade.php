@@ -27,17 +27,41 @@
 
         {{-- Pilih Cinema --}}
         <div>
-            <label for="cinema_id" class="block font-medium mb-2">Pilih Kota</label>
+            <label for="cinema_id" class="block font-medium mb-2">Pilih Cinema</label>
             <select name="cinema_id" id="cinema_id" 
                     class="w-full border border-gray-300 rounded px-3 py-2 focus:ring focus:ring-blue-200" 
                     required>
-                <option value="">-- Pilih Kota --</option>
+                <option value="">-- Pilih Cinema --</option>
                 @foreach($cinemas as $cinema)
                     <option value="{{ $cinema->id }}" {{ old('cinema_id') == $cinema->id ? 'selected' : '' }}>
                         {{ $cinema->name }} ({{ $cinema->city->name }})
                     </option>
                 @endforeach
             </select>
+        </div>
+
+        {{-- Harga Weekday --}}
+        <div>
+            <label for="weekday_price" class="block font-medium mb-2">Harga Weekday</label>
+            <input type="number" name="weekday_price" id="weekday_price" value="{{ old('weekday_price') }}"
+                   class="w-full border border-gray-300 rounded px-3 py-2 focus:ring focus:ring-blue-200"
+                   placeholder="Masukkan harga weekday" required>
+        </div>
+
+        {{-- Harga Friday --}}
+        <div>
+            <label for="friday_price" class="block font-medium mb-2">Harga Friday</label>
+            <input type="number" name="friday_price" id="friday_price" value="{{ old('friday_price') }}"
+                   class="w-full border border-gray-300 rounded px-3 py-2 focus:ring focus:ring-blue-200"
+                   placeholder="Masukkan harga hari Jumat" required>
+        </div>
+
+        {{-- Harga Weekend --}}
+        <div>
+            <label for="weekend_price" class="block font-medium mb-2">Harga Weekend</label>
+            <input type="number" name="weekend_price" id="weekend_price" value="{{ old('weekend_price') }}"
+                   class="w-full border border-gray-300 rounded px-3 py-2 focus:ring focus:ring-blue-200"
+                   placeholder="Masukkan harga weekend" required>
         </div>
 
         <div class="flex justify-between items-center">

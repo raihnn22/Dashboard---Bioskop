@@ -74,10 +74,11 @@ Route::resource('prices', CinemaPriceController::class);
 //Studio
 Route::get('/studios', [StudioController::class, 'index'])->name('studios.index');
 Route::get('/studios/create', [StudioController::class, 'create'])->name('studios.create');
-Route::post('/studios/store', [StudioController::class, 'store'])->name('studios.store');
+Route::post('/studios', [StudioController::class, 'store'])->name('studios.store');
 Route::get('/studios/{id}/edit', [StudioController::class, 'edit'])->name('studios.edit');
-Route::post('/studios/{id}/update', [StudioController::class, 'update'])->name('studios.update');
-Route::get('/studios/{id}/delete', [StudioController::class, 'destroy'])->name('studios.destroy');
+Route::put('/studios/{id}', [StudioController::class, 'update'])->name('studios.update'); // <-- pakai PUT
+Route::delete('/studios/{id}', [StudioController::class, 'destroy'])->name('studios.destroy');
+
 
 
 
