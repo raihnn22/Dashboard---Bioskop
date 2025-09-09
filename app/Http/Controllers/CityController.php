@@ -31,14 +31,14 @@ class CityController extends Controller
         return redirect()->route('cities.index')->with('success', 'Kota berhasil ditambahkan.');
     }
 
-    // 👉 Form edit
+    // edit
     public function edit($id)
     {
         $city = City::findOrFail($id);
         return view('admin.edit.edit_city', compact('city'));
     }
 
-    // 👉 Proses update
+    // update
     public function update(Request $request, $id)
     {
         $request->validate([

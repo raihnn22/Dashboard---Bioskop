@@ -39,14 +39,14 @@ class PromoController extends Controller
         return redirect()->route('promos.index')->with('success', 'Promo berhasil ditambahkan');
     }
 
-    // 👉 form edit
+
     public function edit($id)
     {
         $promo = Promo::findOrFail($id);
         return view('admin.edit.edit_promo', compact('promo'));
     }
 
-    // 👉 update promo
+
     public function update(Request $request, $id)
     {
         $promo = Promo::findOrFail($id);
@@ -59,7 +59,7 @@ class PromoController extends Controller
             'syarat' => 'required|string',
         ]);
 
-        // kalau ada cover baru, hapus lama
+
         if ($request->hasFile('cover')) {
             if ($promo->cover && Storage::disk('public')->exists($promo->cover)) {
                 Storage::disk('public')->delete($promo->cover);
@@ -73,7 +73,7 @@ class PromoController extends Controller
         return redirect()->route('promos.index')->with('success', 'Promo berhasil diperbarui');
     }
 
-    // 👉 hapus promo
+
     public function destroy($id)
     {
         $promo = Promo::findOrFail($id);

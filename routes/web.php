@@ -9,6 +9,7 @@ use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\CinemaPriceController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\SeatController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -110,6 +111,10 @@ Route::post('admin/tickets', [TicketController::class, 'store'])->name('tickets.
 Route::get('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
 Route::put('/tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
 Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
-
-
 Route::post('/tickets/get-price', [TicketController::class, 'getPrice'])->name('tickets.getPrice');
+
+// Seats
+Route::get('/admin/tickets/{id}/seats', [SeatController::class, 'index'])->name('seats.index');
+Route::get('/admin/tickets/{id}/seats/create', [SeatController::class, 'create'])->name('seats.create');
+Route::post('/admin/tickets/{id}/seats', [SeatController::class, 'store'])->name('seats.store');
+

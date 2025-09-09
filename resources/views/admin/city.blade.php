@@ -1,29 +1,32 @@
-{{-- resources/views/cities/index.blade.php --}}
 @extends('layouts.app')
 
 @section('content')
 <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow">
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-700">Daftar Kota</h2>
+    <h2 class="text-2xl font-bold text-gray-700 mb-6">Daftar Kota</h2>
+
+    {{-- Tombol Tambah Kota di kanan --}}
+    <div class="flex justify-start mb-4">
         <a href="{{ route('cities.create') }}"
            class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded shadow">
             + Tambah Kota
         </a>
     </div>
 
+    {{-- Alert Sukses --}}
     @if(session('success'))
         <div class="mb-4 bg-green-100 text-green-700 p-3 rounded">
             {{ session('success') }}
         </div>
     @endif
 
+    {{-- Table --}}
     <div class="overflow-x-auto">
         <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
             <thead>
                 <tr class="bg-gray-100 text-gray-700 text-left">
-                    <th class="p-3 border text-center">No</th>
+                    <th class="p-3 border text-center w-16">No</th>
                     <th class="p-3 border">Nama Kota</th>
-                    <th class="p-3 border text-center">Aksi</th>
+                    <th class="p-3 border text-center w-48">Aksi</th>
                 </tr>
             </thead>
             <tbody>

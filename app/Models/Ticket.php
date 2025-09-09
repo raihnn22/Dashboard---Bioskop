@@ -23,4 +23,9 @@ class Ticket extends Model
     {
         return $this->belongsTo(Studio::class);
     }
+
+    public function seats()
+    {
+        return $this->hasMany(Seat::class);
+    }
 }
