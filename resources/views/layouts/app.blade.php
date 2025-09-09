@@ -74,17 +74,18 @@
                         <span>Studio</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('prices.index') }}" class="flex items-center mt-3 space-x-3 p-2 px-11 rounded hover:bg-[#4E71BC]">
-                        <img src="/assets/movie.png" alt="File icon" width="24" height="24" />
-                        <span>Studio Price</span>
-                    </a>
-                </li>
 
                 <li>
                     <a href="{{ route('promos.index') }}" class="flex items-center mt-3 space-x-3 p-2 px-11 rounded hover:bg-[#4E71BC]">
                         <img src="/assets/movie.png" alt="File icon" width="24" height="24" />
                         <span>Promo</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('tickets.index') }}" class="flex items-center mt-3 space-x-3 p-2 px-11 rounded hover:bg-[#4E71BC]">
+                        <img src="/assets/movie.png" alt="File icon" width="24" height="24" />
+                        <span>Tickets</span>
                     </a>
                 </li>
             </ul>

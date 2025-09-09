@@ -8,6 +8,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\CinemaPriceController;
+use App\Http\Controllers\TicketController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,7 +44,7 @@ Route::resource('cities', CityController::class);
 Route::get('/admin/tambah/add_promo', [PromoController::class, 'create'])->name('promos.create');
 Route::post('/promos', [PromoController::class, 'store'])->name('promos.store');
 Route::get('/admin/promo', [PromoController::class, 'index'])->name('promos.index'); // Tambahkan route untuk menampilkan daftar promo
-Route::resource('promos', PromoController::class)->middleware('auth'); 
+Route::resource('promos', PromoController::class)->middleware('auth');
 
 
 
@@ -68,7 +69,7 @@ Route::resource('cinemas', CinemaController::class);
 
 
 Route::resource('studios', StudioController::class);
-Route::resource('prices', CinemaPriceController::class);
+
 
 
 //Studio
@@ -103,3 +104,12 @@ Route::delete('/admin/cinema_price/{price}', [CinemaPriceController::class, 'des
 
 
 
+Route::get('/admin/tickets', [TicketController::class, 'index'])->name('tickets.index');
+Route::get('/tickets/create', [TicketController::class, 'create'])->name('tickets.create');
+Route::post('admin/tickets', [TicketController::class, 'store'])->name('tickets.store');
+Route::get('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
+Route::put('/tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
+
+
+Route::post('/tickets/get-price', [TicketController::class, 'getPrice'])->name('tickets.getPrice');

@@ -21,7 +21,7 @@
         <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
             <thead>
                 <tr class="bg-gray-100 text-gray-700 text-left">
-                    <th class="p-3 border">#</th>
+                    <th class="p-3 border">No</th>
                     <th class="p-3 border">Nama Cinema</th>
                     <th class="p-3 border">Kota</th>
                     <th class="p-3 border text-center">Aksi</th>
