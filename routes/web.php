@@ -12,12 +12,10 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\SeatController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.login');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 
